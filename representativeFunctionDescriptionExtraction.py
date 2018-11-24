@@ -11,11 +11,8 @@ import xlsxwriter
 import re
 import multiprocessing
 from multiprocessing.dummy import Pool
-#from suffix_tree import SuffixTree
-#from suffix_tree import GeneralisedSuffixTree 
 import suffixtreeLibrary as st
 import json
-#from django.utils.encoding import smart_str
 
 ##################################################################################
 ##################################################################################
@@ -87,7 +84,6 @@ class clusters():
 		suffixStree = st.STree(input=ncp2)
 		self.suffix_longest_common_string, suffixWii = suffixStree.lcs()
 		self.suffix_longest_common_string = self.suffix_longest_common_string.encode("ascii","ignore").lstrip(" ").rstrip(" ").lower()
-		#print ncp2, self.suffix_longest_common_string
 
 		words = self.suffix_longest_common_string.split()
 		for j in range(len(ncp2)):
@@ -117,7 +113,6 @@ class clusters():
 				if sSuffix:
 					suffix = self.suffixCount(sSuffix)
 
-				#print self.suffix_longest_common_string
 				self.longest_common_string = self.longest_common_string + " " + prefix + " " + self.suffix_longest_common_string + " " + suffix
 				suffixFlag = True
 
@@ -166,7 +161,7 @@ class clusters():
 		suffList = []
 		charList = []
 		wiiStr = wii.encode("utf8","ignore")		
-		##@sa## extracting all descriptions which are return from lcs functions of suffixtreeLibrary
+		##@sam## extracting all descriptions which are return from lcs functions of suffixtreeLibrary
 		UPPAs = list(list(range(0xE000,0xF8FF+1)) + list(range(0xF0000,0xFFFFD+1)) + list(range(0x100000, 0x10FFFD+1)))
 		for i in range(len(UPPAs)):
 			y = unichr(UPPAs[i])
@@ -287,7 +282,7 @@ class clusters():
 				names.append(seqNames[0])
 				descs.append(seqNames[1])	
 
-		####from here you can start generateing new fata file using resultdictionary:
+		####from here you can start generateing new fasta file using resultdictionary:
 
 
 def handler():
