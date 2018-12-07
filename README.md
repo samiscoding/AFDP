@@ -1,1 +1,1 @@
-# CiDas2019
+# stCFExt: suffix tree based Cluster Function Extraction
